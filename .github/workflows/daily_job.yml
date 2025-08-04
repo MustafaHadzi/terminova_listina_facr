@@ -34,6 +34,3 @@ jobs:
 
           git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/MustafaHadzi/terminova_listina_facr.git
           git push origin main
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
-        continue-on-error: true
