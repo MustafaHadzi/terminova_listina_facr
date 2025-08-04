@@ -28,7 +28,7 @@ jobs:
       run: python fetch_utkani.py
 
     - name: Uložit výsledné soubory jako artefakty
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: utkani-data
         path: |
