@@ -20,7 +20,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install pandas beautifulsoup4 lxml
+        run: pip install pandas beautifulsoup4 lxml requests
 
       - name: Run script
         run: python terminova_listina_facr.py
