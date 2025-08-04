@@ -1,36 +1,36 @@
-name: Spustit fotbal skript dvakrát denně
+name: Generuj HTML soubory
 
 on:
+  workflow_dispatch:       # manuální spuštění
   schedule:
-    # Cron syntax: min hod den měsíc den_v_týdnu
-    - cron: '0 6 * * *'   # Každý den v 6:00 UTC
-    - cron: '0 20 * * *'  # Každý den v 20:00 UTC
-  workflow_dispatch:
+    - cron: '0 6 * * *'     # každý den v 6:00
+    - cron: '0 20 * * *'    # každý den ve 20:00
+
 jobs:
-  run-script:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repozitáře
-      uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Nastavit Python 3.10
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-    - name: Nainstalovat závislosti
-      run: |
-        python -m pip install --upgrade pip
-        pip install pandas requests beautifulsoup4 lxml
+      - name: Install dependencies
+        run: pip install pandas beautifulsoup4 lxml
 
-    - name: Spustit Python skript
-      run: python terminova_listina_facr.py
+      - name: Run script
+        run: python terminova_listina_facr.py
 
-    - name: Uložit výsledné soubory jako artefakty
-      uses: actions/upload-artifact@v4
-      with:
-        name: utkani-data
-        path: |
-          utkani.csv
-          Utkani_*.html
+      - name: Commit HTML files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Utkani_*.html
+          git commit -m "Automatická aktualizace HTML zápasů" || echo "Nic se nezměnilo"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
