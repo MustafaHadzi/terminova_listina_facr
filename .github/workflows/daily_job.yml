@@ -5,7 +5,7 @@ on:
     # Cron syntax: min hod den měsíc den_v_týdnu
     - cron: '0 6 * * *'   # Každý den v 6:00 UTC
     - cron: '0 20 * * *'  # Každý den v 20:00 UTC
-
+  workflow_dispatch:
 jobs:
   run-script:
     runs-on: ubuntu-latest
