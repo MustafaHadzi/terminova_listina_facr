@@ -25,7 +25,7 @@ jobs:
         pip install pandas requests beautifulsoup4
 
     - name: Spustit Python skript
-      run: python fetch_utkani.py
+      run: python terminova_listina_facr.py
 
     - name: Uložit výsledné soubory jako artefakty
       uses: actions/upload-artifact@v4
