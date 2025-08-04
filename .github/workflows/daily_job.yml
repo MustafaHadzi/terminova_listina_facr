@@ -22,7 +22,7 @@ jobs:
     - name: Nainstalovat závislosti
       run: |
         python -m pip install --upgrade pip
-        pip install pandas requests beautifulsoup4
+        pip install pandas requests beautifulsoup4 lxml
 
     - name: Spustit Python skript
       run: python terminova_listina_facr.py
