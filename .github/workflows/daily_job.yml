@@ -3,8 +3,8 @@ name: Generuj HTML soubory
 on:
   workflow_dispatch:       # manuální spuštění
   schedule:
-    - cron: '0 6 * * *'     # každý den v 6:00
-    - cron: '0 20 * * *'    # každý den ve 20:00
+    - cron: '0 4 * * *'     # každý den v 6:00
+    - cron: '0 18 * * *'    # každý den ve 20:00
 
 jobs:
   build:
