@@ -2,6 +2,7 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
+from io import StringIO
 
 # 1️⃣ Soutěže ručně zadané
 souteze = pd.DataFrame([
@@ -30,7 +31,8 @@ for _, row in souteze.iterrows():
 
         for idx, table in enumerate(tabulky):
             try:
-                df = pd.read_html(str(table))[0]
+                html_string = str(table)
+                df = pd.read_html(StringIO(html_string))[0]  # <-- Použít StringIO
 
                 # Přeskoč prázdné nebo nekompletní tabulky
                 if df.empty or "datum a čas" not in df.columns:
