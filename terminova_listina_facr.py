@@ -184,7 +184,9 @@ df_domaci_all = df_final[
 
 if not df_domaci_all.empty:
     df_domaci_all["Datum"] = df_domaci_all["datum a čas"].astype(str).str.strip()
-
+    
+    df_domaci_all = df_domaci_all.sort_values("%Date")
+    
     df_domaci_all = df_domaci_all[[
         "Datum", "utkání", "skóre", "hřiště", "poznámka", "název soutěže"
     ]].rename(columns={
@@ -195,7 +197,7 @@ if not df_domaci_all.empty:
         "název soutěže": "Soutěž"
     })
 
-    df_domaci_all = df_domaci_all.sort_values("%Date")
+
 
     html_table_domaci = df_domaci_all.to_html(index=False, border=0, escape=False)
     full_html_domaci = html_header + html_table_domaci + html_footer
