@@ -182,6 +182,13 @@ df_domaci_all = df_final[
     df_final["hřiště"].str.contains("Třemešná", case=False, na=False)
 ].copy()
 
+# ⚠️ Odebrat zápasy mladších žáků proti Spartě Úpice
+mask_mlzaci_upice = (
+    (df_domaci_all["kategorie soutěže"] == "Ml_zaci") &
+    (df_domaci_all["utkání"].str.contains("Sparta Úpice", case=False, na=False))
+)
+df_domaci_all = df_domaci_all[~mask_mlzaci_upice]
+
 if not df_domaci_all.empty:
     df_domaci_all["Datum"] = df_domaci_all["datum a čas"].astype(str).str.strip()
     
