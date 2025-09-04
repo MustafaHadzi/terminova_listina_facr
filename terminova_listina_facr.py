@@ -195,7 +195,7 @@ if not df_domaci_all.empty:
         "název soutěže": "Soutěž"
     })
 
-    df_domaci_all = df_domaci_all.sort_values("Datum")
+    df_domaci_all = df_domaci_all.sort_values("%Date")
 
     html_table_domaci = df_domaci_all.to_html(index=False, border=0, escape=False)
     full_html_domaci = html_header + html_table_domaci + html_footer
