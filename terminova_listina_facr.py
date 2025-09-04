@@ -177,3 +177,31 @@ font-weight: bold;
 else:
     print("⚠️ Žádná utkání nebyla nalezena.")
 
+# 5️⃣ Výstup do jednoho HTML souboru - pouze domácí zápasy (hřiště obsahuje "Třemešná")
+df_domaci_all = df_final[
+    df_final["hřiště"].str.contains("Třemešná", case=False, na=False)
+].copy()
+
+if not df_domaci_all.empty:
+    df_domaci_all["Datum"] = df_domaci_all["datum a čas"].astype(str).str.strip()
+
+    df_domaci_all = df_domaci_all[[
+        "Datum", "utkání", "skóre", "hřiště", "poznámka", "název soutěže"
+    ]].rename(columns={
+        "utkání": "Utkání",
+        "skóre": "Skóre",
+        "hřiště": "Hřiště",
+        "poznámka": "Poznámka",
+        "název soutěže": "Soutěž"
+    })
+
+    df_domaci_all = df_domaci_all.sort_values("Datum")
+
+    html_table_domaci = df_domaci_all.to_html(index=False, border=0, escape=False)
+    full_html_domaci = html_header + html_table_domaci + html_footer
+
+    filename_domaci = "Utkani_DOMA.html"
+    with open(filename_domaci, "w", encoding="utf-8") as f:
+        f.write(full_html_domaci)
+
+    print(f"[OK] Vytvořen společný HTML soubor s domácími zápasy (hřiště Třemešná): {filename_domaci}")
