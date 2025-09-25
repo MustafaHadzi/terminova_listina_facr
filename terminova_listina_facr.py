@@ -4,6 +4,9 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from io import StringIO
 
+ip = requests.get("https://ifconfig.me").text
+print("Aktuální veřejná IP:", ip)
+
 # 1️⃣ Soutěže ručně zadané
 souteze = pd.DataFrame([
     {"URL_REQ": "ca4833f5-5c2a-4737-85eb-eb884a7f1669", "název": "8.liga - OP II.třídy muži", "zkratka": "Muži", "kategorie": "Muzi", "pořadí": 1},
