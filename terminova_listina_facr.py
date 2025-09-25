@@ -3,6 +3,11 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 from io import StringIO
+import os
+
+#  Proxy nastavená natvrdo
+PROXY = os.getenv("HTTP_PROXY", "http://195.85.23.148:8080")
+proxies = {"http": PROXY, "https": PROXY}
 
 # 1️⃣ Soutěže ručně zadané
 souteze = pd.DataFrame([
@@ -23,7 +28,7 @@ for _, row in souteze.iterrows():
     headers = {"User-Agent": "Mozilla/5.0"}
 
     try:
-        resp = requests.get(url, headers=headers)
+        resp = requests.get(url, headers=headers, proxies=proxies, timeout=20)
         soup = BeautifulSoup(resp.text, "html.parser")
         tabulky = soup.find_all("table", class_="soutez-zapasy")
 
