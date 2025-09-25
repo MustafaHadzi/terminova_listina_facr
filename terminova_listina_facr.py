@@ -3,7 +3,6 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 from io import StringIO
-import os
 
 # 1️⃣ Soutěže ručně zadané
 souteze = pd.DataFrame([
