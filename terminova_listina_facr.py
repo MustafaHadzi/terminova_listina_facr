@@ -24,7 +24,7 @@ for _, row in souteze.iterrows():
     headers = {"User-Agent": "Mozilla/5.0"}
 
     try:
-        resp = requests.get(url, headers=headers)
+        resp = requests.get(url, headers=headers, timeout=20, verify=False)
         soup = BeautifulSoup(resp.text, "html.parser")
         tabulky = soup.find_all("table", class_="soutez-zapasy")
 
