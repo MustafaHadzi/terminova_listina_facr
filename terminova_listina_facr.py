@@ -5,10 +5,6 @@ from datetime import datetime
 from io import StringIO
 import os
 
-#  Proxy nastavená natvrdo
-PROXY = os.getenv("HTTP_PROXY", "http://195.85.23.148:8080")
-proxies = {"http": PROXY, "https": PROXY}
-
 # 1️⃣ Soutěže ručně zadané
 souteze = pd.DataFrame([
     {"URL_REQ": "ca4833f5-5c2a-4737-85eb-eb884a7f1669", "název": "8.liga - OP II.třídy muži", "zkratka": "Muži", "kategorie": "Muzi", "pořadí": 1},
@@ -28,7 +24,7 @@ for _, row in souteze.iterrows():
     headers = {"User-Agent": "Mozilla/5.0"}
 
     try:
-        resp = requests.get(url, headers=headers, proxies=proxies, timeout=20, verify=False)
+        resp = requests.get(url, headers=headers)
         soup = BeautifulSoup(resp.text, "html.parser")
         tabulky = soup.find_all("table", class_="soutez-zapasy")
 
