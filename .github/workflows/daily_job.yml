@@ -26,6 +26,9 @@ jobs:
         pip install requests pandas beautifulsoup4 lxml
 
     - name: Run script
+      env:
+          HTTP_PROXY: ${{ secrets.HTTP_PROXY }}   # proxy z GitHub secretu
+          HTTPS_PROXY: ${{ secrets.HTTP_PROXY }}  # pro jistotu i https
       run: python terminova_listina_facr.py
 
     - name: Commit & push výsledky
