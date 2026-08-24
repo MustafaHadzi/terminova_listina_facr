@@ -9,13 +9,13 @@ print("Aktuální veřejná IP:", ip)
 
 # 1️⃣ Soutěže ručně zadané
 souteze = pd.DataFrame([
-    {"URL_REQ": "ca4833f5-5c2a-4737-85eb-eb884a7f1669", "název": "8.liga - OP II.třídy muži", "zkratka": "Muži", "kategorie": "Muzi", "pořadí": 1},
-    {"URL_REQ": "25eb6e79-1ee7-4f37-b009-3e8ad82dd9a8", "název": "KP mladšího dorostu U 17", "zkratka": "Ml. dorost", "kategorie": "Ml_dorost", "pořadí": 3},
-    {"URL_REQ": "7ed63c5b-135b-446e-a7fd-5970a7a42f79", "název": "OP mladších žáků", "zkratka": "Ml. žáci", "kategorie": "Ml_zaci", "pořadí": 6},
-    {"URL_REQ": "601ae6ee-b2ad-481e-b65c-c3213628dc14", "název": "OP starší přípravky", "zkratka": "St. přípravka", "kategorie": "St_pripravka", "pořadí": 7},
-    {"URL_REQ": "81c78fe9-035d-4e09-9a8f-5d4a6523e635", "název": "OP mladší přípravky", "zkratka": "Ml. přípravka", "kategorie": "Ml_pripravka", "pořadí": 8},
-    {"URL_REQ": "43013500-b4b2-4fe4-a7af-a32b48e2dd4a", "název": "OP minipřípravky", "zkratka": "Mini přípravka", "kategorie": "Mini_pripravka", "pořadí": 9},    
-    {"URL_REQ": "92a2e0ec-d85a-4b75-89fc-73fa15062eff", "název": "Pohár OFS muži", "zkratka": "Muži", "kategorie": "Muzi", "pořadí": 10},
+    {"URL_REQ": "234e4354-c975-4caf-b3b2-27338679374b", "název": "7.liga - B.třída muži", "zkratka": "Muži", "kategorie": "Muzi", "pořadí": 1},
+    {"URL_REQ": "589dae8f-1eb2-46d1-b6e4-e45a8f290dab", "název": "KP mladšího dorostu U 17", "zkratka": "Ml. dorost", "kategorie": "Ml_dorost", "pořadí": 3},
+    {"URL_REQ": "8d3b98c2-fe4f-4f9e-a651-780d7fb297ad", "název": "OP mladších žáků", "zkratka": "Ml. žáci", "kategorie": "Ml_zaci", "pořadí": 6},
+    {"URL_REQ": "12f22a94-83be-46ad-89dd-14c82f7c5cb2", "název": "OP starší přípravky", "zkratka": "St. přípravka", "kategorie": "St_pripravka", "pořadí": 7},
+    {"URL_REQ": "0642cca4-a12a-4a06-866c-34eea323d418", "název": "OP mladší přípravky", "zkratka": "Ml. přípravka", "kategorie": "Ml_pripravka", "pořadí": 8},
+    {"URL_REQ": "22abe66b-8006-434b-9fba-87e594cdd4b5", "název": "OP minipřípravky", "zkratka": "Mini přípravka", "kategorie": "Mini_pripravka", "pořadí": 9},    
+    # {"URL_REQ": "92a2e0ec-d85a-4b75-89fc-73fa15062eff", "název": "Pohár OFS muži", "zkratka": "Muži", "kategorie": "Muzi", "pořadí": 10},
 ])
 
 utkani_all = []
